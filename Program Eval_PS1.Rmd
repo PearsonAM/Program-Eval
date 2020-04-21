@@ -14,7 +14,7 @@ urlcolor: blue
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r packages, include=False}
+```{r packages, include= FALSE}
 #install.packages("MASS")
 #install.packages("stargazer")
 #install.packages("kableExtra")
