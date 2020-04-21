@@ -100,6 +100,8 @@ In the context of the BURLIG data we would be looking for the average outcome on
 ```{r q5_balancetest, include=FALSE}
  
 bdata<-read_csv("ps1_data.csv")
+View(bdata)
+summary(bdata)
 balancetest <- lm(burlig_trt ~baseline_employees , data = bdata)
 stargazer(balancetest, title = "Burlig Data Balance Tests",
           dep.var.labels = "Income", # renaming the dependent variable
