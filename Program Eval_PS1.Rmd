@@ -96,15 +96,28 @@ In the context of the BURLIG data we would be looking for the average outcome on
 #Question 5
  BURLIG has conducted a pilot *randomized * study to estimate the effects of their loans on wages and we will start by checking (with a proper statistical test) that the treatment group and control group are balanced in pre-treatment wages (measured in dollars), sales, number of workers, and owner gender. Note: Used *burlig_trt * as your treatment variable. We check balance 
  
- 
-```{r q5_balancetest, include=FALSE}
+```{r q5_balancetest, include= TRUE}
  
 bdata<-read_csv("ps1_data.csv")
 View(bdata)
 summary(bdata)
-balancetest <- lm(burlig_trt ~baseline_employees , data = bdata)
-stargazer(balancetest, title = "Burlig Data Balance Tests",
-          dep.var.labels = "Income", # renaming the dependent variable
+
+#remove the outliers
+bdata_2<-subset(bdata,baseline_wages>=0)
+summary(bdata_2)
+
+#Divide the data into treated and control 
+treated_bdata<-subset(bdata_2,burlig_trt==1)
+control_bdata<-subset(bdata_2, burlig_trt==0)
+
+#Balance Test
+wagetest<-t.test(x=treated_bdata$baseline_wages,y=control_bdata$baseline_wages)
+salestest<-t.test(x=treated_bdata$baseline_sales,y=control_bdata$baseline_sales)
+employtest<-t.test(x=treated_bdata$baseline_employees,y=control_bdata$baseline_employees)
+femaletest<-t.test(x=treated_bdata$baseline_owner_female,y=control_bdata$baseline_owner_female)
+
+stargazer(wagetest, title = "Burlig Data Balance Tests",
+          dep.var.labels = "Treated", # renaming the dependent variable
           header = F)                # get rid of the initial comments added by the author
 ```
 

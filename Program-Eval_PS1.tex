@@ -1,0 +1,448 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{unicode=true,
+            pdftitle={PS1\_Small Business Loan Program},
+            pdfauthor={Alexis Pearson},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{PS1\_Small Business Loan Program}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Alexis Pearson}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{4/16/2020}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\usepackage{float}
+\usepackage{setspace}
+\onehalfspacing
+
+\begin{document}
+\maketitle
+
+\#\#PPHA 34600: Program Evaluation Spring 2020 \#\#Problem Set 1 \#\#Due
+Thursday, April 23, at 9PM CT
+
+My team and I have been asked by a well-meaning NGO, the Business
+Underwriting and Loan International Group (BURLIG), to help them learn
+about the impacts of their small business loan program on employee
+income in California. BURLIG provides low-interest loans to small firms,
+and hypothesizes that these loans are increasing incomes by raising
+employment. The following report will work through the questions and
+results our team helped to find and synthesize.
+
+\#Question 1
+
+BURLIG would like to know about the income impacts of their loans. They
+say they're interested in measuring the impact of their loans, but don't
+exactly know what that means. Here we have used the potential outcomes
+framework to describe the impact of treatment (defined as ``taking a
+small business loan''),\(Y_i(1)\) for firm \emph{i } on wages (measured
+in dollars paid to workers) formally (meaning in math) and also in
+words.
+
+\textbf{Potential Outcome Framework}\\
+*** This potential outcome framework allows us to understand and
+visualize the causal effect of a binary treatment \(X_i\) on the outcome
+\(Y_i\). For every individual \emph{i} there will exist two potential
+outcomes depending on if the individual recieved treatment or not.\\
+\(Y_i(1)\) is the outcome of individual \emph{i} if they recieve
+treatment.\\
+\(Y_i(0)\) is the outcome of individual \emph{i} if they do not recieve
+treatment.\\
+The observed outcomes of \(Y_i_\) can be written in terms of potential
+outcomes \[\ Y_i = [Y_i(1) * X_i ]+ [Y_i(0)*(1-X_i)] \] or treatment
+effects \[\ \tau_i = Y_i(1) - Y_i(0) \].
+
+Due to the fact that two outcomes exist, this equation can then be
+rewritten two ways depending on the treatment status of the individual.
+
+\[\ Y_i = [Y_i(1) * X_i ]- [Y_i(0)*(1-X_i)] \]
+
+\textbf{Treated}\\
+\[\ Y_i = [Y_i(1) * (1) ]- [Y_i(0)*0] = Y_i(1)\]
+
+In words: The potential impact of taking a small business loan, also
+known as the treatment effect \[\tau_i\] , on firm \emph{i}'s wages is
+equal to the potential impact on wages with the loan minus the potential
+impact without the loan.
+
+\textbf{Untreated}\\
+\[\ Y_i = [Y_i(1) * 0 ]+ [Y_i(0)*1]= Y_i(0) \]
+
+In words: The potential impact of not taking a small business loan on
+firm \emph{i}'s wages is equal to the potential impact on wages with the
+loan minus the potential impact without the loan.
+
+\#Question 2 It is important to note that estimating \[\tau_i\] is
+impossible. Like we explained earlier, an individual \emph{i} can exist
+in two potential outcomes: the world where they recieve treatment and
+the world where they don't. However, the \emph{Fundamental Problem of
+Causal Inference} explains that we only get to observe one version of
+individual \emph{i} and therefore we only get to see either the outcomes
+of treatment, \(X(0)\) or no treatment \(X(1)\), we can't see both.
+Because of this, there will always exist some counterfactual we can't
+see at the same moment in time.
+
+\#Question 3
+
+Due to this issues of the missing counterfactual explained by the
+\emph{Fundamental Problem of Causal Inference} we have to use other
+methods to estimate the effect of treatment. A method that is sometimes
+suggested is the \emph{Average Treatment Effect}. However, this will not
+fully fix our issue. The \emph{Average Treatment Effect}, written\\
+\[\ \tau^{ATE} = E[Y_i(1) - Y_i(0)], \]
+
+is the difference in mean outcomes between units assigned to the
+treatment and units assigned to the control. Simply an average of
+\(\tau_i\) for \textbf{entire populations}/ \emph{all individuals}. It
+is an expectations not using the real outcomes but the potential
+outcomes. Because it is measuring singular individuals and because it is
+not using actual outcomes, you are not able to definitively say that the
+differences in outcomes we see is due to treatment and not simply some
+other unobserved factor. We cannot observe the potential outcomes of a
+singular individual.
+
+If one was to the data provided by BURLIG, on firms with and without
+loans, and wanted to compare the average wages paid across the two sets
+of firms, in an effort to estimate the average treatment effect, they
+would not end up with what they seek. In fact, instead of the average
+treatment effect they would be calculated the \emph{Naive Estimator}.
+The naive estimator is the difference between the AVERAGE TREATED
+outcome on the \emph{treated} and the AVERAGE UNTREATED outcome on the
+\emph{untreated}.
+
+Visually that is written:
+\[\ \tau^N = E[Y_i(1)|X_i = 1] - E[Y_i(0)|X_i = 0] \] where \(X_i\) is
+the treatment variable.\\
+Verbally:\\
+The expected average wages when recieved a loan is equal to the expected
+wages when recieved a loan conditional on recieving a loan minus
+expected average wages when didn't recieve a loan conditional on not
+recieveing the loan.
+
+This is different from the \emph{Average Treatment Effect} because the
+\emph{Naive Estimator} is assuming that everyone who recieves treatment
+is the exact same as everyone who does not recieve treatment and it only
+contains the observed outcomes.
+
+Visually that is written:
+\[\ E[Y_i(1)] = E[Y_i(1)|X_i = 1] = E[Y_i(1)|X_i = 0], \]\\
+\[\ E[Y_i(0)] = E[Y_i(0)|X_i = 1] = E[Y_i(0)|X_i = 0]. \]
+
+However, this is a bad assumption to make because most expectedly there
+will be selection and depending if this selection is on the observables
+or the unobservables, it may be hard to control for them and can skew
+the story we are trying to tell.
+
+\#Question 4
+
+Another way to try and find the treatment effect is to find the
+\emph{Average Treatment Effect on the Treated} or the \[\tau^{ATT}\].
+The average treatment effect on the treated is written mathematically as
+so: \[\ \tau^{ATT} = {E[Y_i(1)|D_i = 1]} - {E[Y_i(0)|D_i = 1]} \].
+Essentially, we are taking the expected outcome of the treated
+conditional on treatment and subtracting the expected outcome of
+non-treatment conditional on treatment.\\
+In the context of the BURLIG data we would be looking for the average
+outcome on wages after recieving a loan if you recieved a loan
+\[\ \underbrace{E[Y_i(1)|D_i = 1]}_\textrm{observed}\]and the average
+outcome on wages after not recieving a loan if you recieved a loan-
+\[\underbrace{E[Y_i(0)|D_i = 1]}_\textrm{potential/unobserved} \]. And
+here inlies the issue, that second part is unobserved. If we are living
+in the world of treatment it is impossible for us to see the effect of
+non-treatment on someone who got treatment.
+
+\#Question 5 BURLIG has conducted a pilot \emph{randomized } study to
+estimate the effects of their loans on wages and we will start by
+checking (with a proper statistical test) that the treatment group and
+control group are balanced in pre-treatment wages (measured in dollars),
+sales, number of workers, and owner gender. Note: Used \emph{burlig\_trt
+} as your treatment variable. We check balance
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bdata<-}\KeywordTok{read_csv}\NormalTok{(}\StringTok{"ps1_data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   burlig_trt = col_double(),
+##   burlig_trt_take = col_double(),
+##   baseline_employees = col_double(),
+##   baseline_wages = col_double(),
+##   baseline_sales = col_double(),
+##   baseline_owner_female = col_double(),
+##   endline_wages = col_double(),
+##   endline_employees = col_double(),
+##   endline_sales = col_double(),
+##   endline_owner_female = col_double()
+## )
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{View}\NormalTok{(bdata)}
+\KeywordTok{summary}\NormalTok{(bdata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    burlig_trt     burlig_trt_take  baseline_employees baseline_wages      
+##  Min.   :0.0000   Min.   :0.0000   Min.   : 8.496     Min.   :-1.750e+17  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:26.560     1st Qu.: 3.500e+04  
+##  Median :1.0000   Median :0.0000   Median :29.994     Median : 3.738e+04  
+##  Mean   :0.5002   Mean   :0.3284   Mean   :30.002     Mean   :-3.500e+13  
+##  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:33.360     3rd Qu.: 1.319e+05  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :46.883     Max.   : 6.970e+05  
+##  baseline_sales     baseline_owner_female endline_wages    
+##  Min.   :18400000   Min.   :0.0000        Min.   :      0  
+##  1st Qu.:19300000   1st Qu.:0.0000        1st Qu.: 945092  
+##  Median :19500000   Median :0.0000        Median :1067187  
+##  Mean   :19491500   Mean   :0.3652        Mean   :1075106  
+##  3rd Qu.:19700000   3rd Qu.:1.0000        3rd Qu.:1192960  
+##  Max.   :20500000   Max.   :1.0000        Max.   :2016082  
+##  endline_employees endline_sales      endline_owner_female
+##  Min.   : 8.496    Min.   :18500000   Min.   :0.0000      
+##  1st Qu.:27.243    1st Qu.:19300000   1st Qu.:0.0000      
+##  Median :30.684    Median :19500000   Median :0.0000      
+##  Mean   :30.659    Mean   :19492800   Mean   :0.3652      
+##  3rd Qu.:34.037    3rd Qu.:19700000   3rd Qu.:1.0000      
+##  Max.   :48.883    Max.   :20600000   Max.   :1.0000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#remove the outliers}
+\NormalTok{bdata_}\DecValTok{2}\NormalTok{<-}\KeywordTok{subset}\NormalTok{(bdata,baseline_wages}\OperatorTok{>=}\DecValTok{0}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(bdata_}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    burlig_trt     burlig_trt_take  baseline_employees baseline_wages  
+##  Min.   :0.0000   Min.   :0.0000   Min.   : 8.496     Min.   : 15001  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:26.559     1st Qu.: 35000  
+##  Median :1.0000   Median :0.0000   Median :29.993     Median : 37394  
+##  Mean   :0.5001   Mean   :0.3283   Mean   :30.001     Mean   : 94276  
+##  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:33.358     3rd Qu.:132010  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :46.883     Max.   :697037  
+##  baseline_sales     baseline_owner_female endline_wages    
+##  Min.   :18400000   Min.   :0.0000        Min.   : 296999  
+##  1st Qu.:19300000   1st Qu.:0.0000        1st Qu.: 945108  
+##  Median :19500000   Median :0.0000        Median :1067242  
+##  Mean   :19491498   Mean   :0.3653        Mean   :1075321  
+##  3rd Qu.:19700000   3rd Qu.:1.0000        3rd Qu.:1192986  
+##  Max.   :20500000   Max.   :1.0000        Max.   :2016082  
+##  endline_employees endline_sales      endline_owner_female
+##  Min.   : 8.496    Min.   :18500000   Min.   :0.0000      
+##  1st Qu.:27.242    1st Qu.:19300000   1st Qu.:0.0000      
+##  Median :30.681    Median :19500000   Median :0.0000      
+##  Mean   :30.658    Mean   :19492779   Mean   :0.3653      
+##  3rd Qu.:34.036    3rd Qu.:19700000   3rd Qu.:1.0000      
+##  Max.   :48.883    Max.   :20600000   Max.   :1.0000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Divide the data into treated and control }
+\NormalTok{treated_bdata<-}\KeywordTok{subset}\NormalTok{(bdata_}\DecValTok{2}\NormalTok{,burlig_trt}\OperatorTok{==}\DecValTok{1}\NormalTok{)}
+\NormalTok{control_bdata<-}\KeywordTok{subset}\NormalTok{(bdata_}\DecValTok{2}\NormalTok{, burlig_trt}\OperatorTok{==}\DecValTok{0}\NormalTok{)}
+
+\CommentTok{#Balance Test}
+\NormalTok{wagetest<-}\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{treated_bdata}\OperatorTok{$}\NormalTok{baseline_wages,}\DataTypeTok{y=}\NormalTok{control_bdata}\OperatorTok{$}\NormalTok{baseline_wages)}
+\NormalTok{salestest<-}\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{treated_bdata}\OperatorTok{$}\NormalTok{baseline_sales,}\DataTypeTok{y=}\NormalTok{control_bdata}\OperatorTok{$}\NormalTok{baseline_sales)}
+\NormalTok{employtest<-}\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{treated_bdata}\OperatorTok{$}\NormalTok{baseline_employees,}\DataTypeTok{y=}\NormalTok{control_bdata}\OperatorTok{$}\NormalTok{baseline_employees)}
+\NormalTok{femaletest<-}\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{treated_bdata}\OperatorTok{$}\NormalTok{baseline_owner_female,}\DataTypeTok{y=}\NormalTok{control_bdata}\OperatorTok{$}\NormalTok{baseline_owner_female)}
+
+\KeywordTok{stargazer}\NormalTok{(wagetest, }\DataTypeTok{title =} \StringTok{"Burlig Data Balance Tests"}\NormalTok{,}
+          \DataTypeTok{dep.var.labels =} \StringTok{"Treated"}\NormalTok{, }\CommentTok{# renaming the dependent variable}
+          \DataTypeTok{header =}\NormalTok{ F)                }\CommentTok{# get rid of the initial comments added by the author}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## % Error: Unrecognized object type.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Plot a histogram of wages for treated firms and control firms. What do
+  you see? Re-do your balance table to reflect any necessary
+  adjustments. What does this table tell you about whether or not
+  BURLIG's randomization worked? What assumption do we need to make on
+  unobserved characteristics in order to be able to estimate the causal
+  effect of burlig\_trt  ?
+\item
+  Assuming that burlig\_trt  is indeed randomly assigned, describe how
+  to use it to estimate the average treatment effect, and then do so.
+  Please describe your estimate: what is the interpretation of your
+  coefficient (be clear about your units)? Is your result statistically
+  significant? Is the effect you find large or small, relative to the
+  mean in the control group?
+\item
+  BURLIG is convinced that the reason their loans are effective is
+  because they are leading firms to hire new workers. They want you to
+  estimate the effects of their loans, but controlling for endline
+  number of employees. Is this a good idea? Why or why not? Run this
+  regression and describe your estimates. How do they differ from your
+  results in (7)? What about controlling for baseline number of
+  workers? Run this regression and describe your estimates. How do they
+  differ from your results in (7)? How do the two estimates differ? What
+  is driving any differences between them?
+\item
+  One of the BURLIG RAs (the real workforce!) informs you that not
+  everybody who was assigned to treatment -- or was offered a loan --
+  (burlig\_trt  = 1) actually took out  their loan. She tells you
+  that the actual treatment indicator is burlig\_trt\_take  . (Since
+  their loans were unique, we know for a fact that nobody in the control
+  group got one). In light of this new information, what did you
+  actually estimate in question (7)? How does this differ from what you
+  thought you were estimating?
+\item
+  BURLIG aren't actually interested in the effect of assignment to
+  treatment - they want to know about the actual effects of their loans.
+  Describe (in math, and then in words) what you can estimate using the
+  two treatment variables we observe, burlig\_trt  and
+  burlig\_trt\_take  . Estimate this object (you can ignore standard
+  errors just for this once). Interpret your findings. How does this
+  compare to what you estimated in (7)?
+\end{enumerate}
+
+
+\end{document}
