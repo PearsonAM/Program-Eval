@@ -1,0 +1,123 @@
+---
+title: "PS1_Small Business Loan Program"
+author: "Alexis Pearson"
+date: "4/16/2020"
+output: pdf_document
+header-includes: 
+   - \usepackage{float}
+   - \usepackage{setspace}
+   - \onehalfspacing
+urlcolor: blue 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages, include=False}
+#install.packages("MASS")
+#install.packages("stargazer")
+#install.packages("kableExtra")
+library(MASS)
+library(ggplot2)
+library(tidyverse)
+library(stargazer)
+library(kableExtra)
+#options(scipen = 999) # getting rid of scientific notation
+```
+
+##PPHA 34600: Program Evaluation Spring 2020 
+##Problem Set 1 
+##Due Thursday, April 23, at 9PM CT
+
+My team and I have been asked by a well-meaning NGO, the Business Underwriting and Loan International Group (BURLIG),  to help them learn about the impacts of their small business loan program on employee income in California. BURLIG provides low-interest loans to small firms, and hypothesizes that these loans are increasing incomes by raising employment. The following report will work through the questions and results our team helped to find and synthesize.  
+
+#Question 1  
+
+BURLIG would like to know about the income impacts of their loans. They say they’re interested in measuring the impact of their loans, but don’t exactly know what that means. Here we have used the potential outcomes framework to describe the impact of treatment (defined as “taking a small business loan”),$Y_i(1)$ for firm _i _ on wages (measured in dollars paid to workers) formally (meaning in math) and also in words.  
+
+**Potential Outcome Framework**  
+***
+This potential outcome framework allows us to understand and visualize the causal effect of a binary treatment $X_i$ on the outcome $Y_i$. For every individual _i_ there will exist two potential outcomes depending on if the individual recieved treatment or not.  
+$Y_i(1)$ is the outcome of individual _i_ if they recieve treatment.  
+$Y_i(0)$ is the outcome of individual _i_ if they do not recieve treatment.  
+The observed outcomes of $Y_i_$ can be written in terms of potential outcomes \[\ Y_i = [Y_i(1) * X_i ]+ [Y_i(0)*(1-X_i)] \] or treatment effects \[\ \tau_i = Y_i(1) - Y_i(0) \].  
+
+Due to the fact that two outcomes exist, this equation can then be rewritten two ways depending on the treatment status of the individual.  
+
+\[\ Y_i = [Y_i(1) * X_i ]- [Y_i(0)*(1-X_i)] \]  
+
+**Treated**  
+\[\ Y_i = [Y_i(1) * (1) ]- [Y_i(0)*0] = Y_i(1)\]  
+
+In words: The potential impact of taking a small business loan, also known as the treatment effect \[\tau_i\] , on firm _i_'s wages is equal to the potential impact on wages with the loan minus the potential impact without the loan.   
+
+**Untreated**  
+\[\ Y_i = [Y_i(1) * 0 ]+ [Y_i(0)*1]= Y_i(0) \]  
+
+In words: The potential impact of not taking a small business loan on firm _i_'s wages is equal to the potential impact on wages with the loan  minus the potential impact without the loan. 
+
+
+
+#Question 2
+It is important to note that estimating \[\tau_i\] is impossible. Like we explained earlier, an individual _i_ can exist in two potential outcomes: the world where they recieve treatment and the world where they don't. However, the *Fundamental Problem of Causal Inference* explains that we only get to observe one version of individual _i_ and therefore we only get to see either the outcomes of treatment, $X(0)$ or no treatment $X(1)$, we can't see both. Because of this, there will always exist some counterfactual we can't see at the same moment in time. 
+
+#Question 3
+ 
+Due to this issues of the missing counterfactual explained by the *Fundamental Problem of Causal Inference* we have to use other methods to estimate the effect of treatment. A method that is sometimes suggested is the  *Average Treatment Effect*. However, this will not fully fix our issue. The *Average Treatment Effect*, written  
+\[\ \tau^{ATE} = E[Y_i(1) - Y_i(0)], \]  
+
+is the difference in mean outcomes between units assigned to the treatment and units assigned to the control. Simply an average of $\tau_i$ for **entire populations**/ *all individuals*. It is an expectations not using the real outcomes but the potential outcomes. Because it is measuring singular individuals and because it is not using actual outcomes, you are not able to definitively say that the differences in outcomes we see is due to treatment and not simply some other unobserved factor. We cannot observe the potential outcomes of a singular individual.   
+
+If one was to the data provided by BURLIG, on firms with and without loans, and wanted to compare the average wages paid across the two sets of firms, in an effort to estimate the average treatment effect, they would not end up with what they seek. In fact, instead of the average treatment effect they would be calculated the *Naive Estimator*. The naive estimator is the difference between the AVERAGE TREATED outcome on the *treated* and the AVERAGE UNTREATED outcome on the *untreated*.  
+
+Visually that is written:
+\[\ \tau^N = E[Y_i(1)|X_i = 1] - E[Y_i(0)|X_i = 0] \]
+where $X_i$ is the treatment variable.    
+Verbally:  
+The expected average wages when recieved a loan is equal to the expected wages when recieved a loan conditional on recieving a loan minus expected average wages when didn't recieve a loan conditional on not recieveing the loan. 
+
+
+This is different from the *Average Treatment Effect* because the *Naive Estimator* is assuming that everyone who recieves treatment is the exact same as everyone who does not recieve treatment and it only contains the observed outcomes.
+
+Visually that is written:
+\[\ E[Y_i(1)] = E[Y_i(1)|X_i = 1] = E[Y_i(1)|X_i = 0], \]  
+\[\ E[Y_i(0)] = E[Y_i(0)|X_i = 1] = E[Y_i(0)|X_i = 0]. \]  
+
+
+
+However, this is a bad assumption to make because most expectedly there will be selection and depending if this selection is on the observables or the unobservables, it may be hard to control for them and can skew the story we are trying to tell.  
+
+#Question 4
+
+Another way to try and find the treatment effect is to find the *Average Treatment Effect on the Treated* or the \[\tau^{ATT}\]. The average treatment effect on the treated is written mathematically as so: \[\ \tau^{ATT} = {E[Y_i(1)|D_i = 1]} - {E[Y_i(0)|D_i = 1]} \]. Essentially, we are taking the expected outcome of the treated conditional on treatment and subtracting the expected outcome of non-treatment conditional on treatment.   
+In the context of the BURLIG data we would be looking for the average outcome on wages after recieving a loan if you recieved a loan \[\ \underbrace{E[Y_i(1)|D_i = 1]}_\textrm{observed}\]and the average outcome on wages after not recieving a loan if you recieved a loan- \[\underbrace{E[Y_i(0)|D_i = 1]}_\textrm{potential/unobserved} \]. And here inlies the issue, that second part is unobserved. If we are living in the world of treatment it is impossible for us to see the effect of non-treatment on someone who got treatment. 
+
+#Question 5
+ BURLIG has conducted a pilot *randomized * study to estimate the effects of their loans on wages and we will start by checking (with a proper statistical test) that the treatment group and control group are balanced in pre-treatment wages (measured in dollars), sales, number of workers, and owner gender. Note: Used *burlig_trt * as your treatment variable. We check balance 
+ 
+ 
+```{r q5_balancetest, include=FALSE}
+ 
+bdata<-read_csv("ps1_data.csv")
+balancetest <- lm(burlig_trt ~baseline_employees , data = bdata)
+stargazer(balancetest, title = "Burlig Data Balance Tests",
+          dep.var.labels = "Income", # renaming the dependent variable
+          header = F)                # get rid of the initial comments added by the author
+```
+
+6. Plot a histogram of wages for treated firms and control firms. What do you see?  Re-do your balance table to reflect any necessary adjustments. What does this table tell you about whether or not BURLIG’s randomization worked? What assumption do we need to make on unobserved characteristics in order to be able to estimate the causal effect of burlig_trt  ? 
+
+7. Assuming that burlig_trt  is indeed randomly assigned, describe how to use it to estimate the average treatment effect, and then do so. Please describe your estimate: what is the interpretation of your coefficient (be clear about your units)? Is your result statistically significant? Is the effect you find large or small, relative to the mean in the control group? 
+ 
+8. BURLIG is convinced that the reason their loans are effective is because they are leading firms to hire new workers. They want you to estimate the effects of their loans, but controlling for endline number of employees. Is this a good idea? Why or why not? Run this regression and describe your estimates. How do they differ from your results in (7)? What about controlling for baseline number of workers? Run this regression and describe your estimates. How do they differ from your results in (7)? How do the two estimates differ? What is driving any differences between them? 
+ 
+9. One of the BURLIG RAs (the real workforce!) informs you that not everybody who was assigned to treatment -- or was offered a loan -- (burlig_trt  = 1) actually took out  their loan. She tells you that the actual treatment indicator is burlig_trt_take  . (Since their loans were unique, we know for a fact that nobody in the control group got one). In light of this new information, what did you actually estimate in question (7)? How does this differ from what you thought you were estimating? 
+ 
+10. BURLIG aren’t actually interested in the effect of assignment to treatment - they want to know about the actual effects of their loans. Describe (in math, and then in words) what you can estimate using the two treatment variables we observe, burlig_trt  and burlig_trt_take  . Estimate this object (you can ignore standard errors just for this once). Interpret your findings. How does this compare to what you estimated in (7)?
+
+
+
+
+
+
